@@ -184,7 +184,7 @@ export default {
   //   },
   // },
   proxy: {
-    '/api/': {
+    '/apiv2/': {
       // target: 'http://139.196.102.128:8000/',
       target: 'http://127.0.0.1:5000',
       changeOrigin: true,

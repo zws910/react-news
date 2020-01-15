@@ -127,7 +127,7 @@ class News extends Component {
               <Card>
                 <ul className={styles.items}>
                   {this.props.news.map(data => (
-                    <li className={styles.item} key={data.href}>
+                    <li className={styles.item} key={data.sid}>
                       <div className={styles.inner}>
                         <time className={styles.time}>{this.formatTime(data.ts_crawl)}</time>
                         <header className={styles.title}>

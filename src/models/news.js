@@ -9,7 +9,6 @@ const NewsModel = {
   effects: {
     *fetch({ payload }, { call, put }) {
       const response = yield call(query, payload);
-      console.log(response);
       yield put({
         type: 'updateNews',
         payload: response,
