@@ -93,9 +93,13 @@ export default {
           component: '../layouts/BasicLayout',
           authority: ['admin', 'user'],
           routes: [
+            // {
+            //   path: '/',
+            //   redirect: '/welcome',
+            // },
             {
               path: '/',
-              redirect: '/welcome',
+              redirect: '/news',
             },
             {
               path: '/welcome',
@@ -109,6 +113,12 @@ export default {
               icon: 'crown',
               component: './Admin',
               authority: ['admin'],
+            },
+            {
+              name: 'news',
+              icon: 'smile',
+              path: '/news',
+              component: './news',
             },
             {
               component: './404',
@@ -127,6 +137,7 @@ export default {
   // Theme for antd: https://ant.design/docs/react/customize-theme-cn
   theme: {
     // ...darkTheme,
+    'primary-color': '#272633',
   },
   define: {
     ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION:
@@ -172,4 +183,12 @@ export default {
   //     pathRewrite: { '^/server': '' },
   //   },
   // },
+  proxy: {
+    '/api/': {
+      // target: 'http://139.196.102.128:8000/',
+      target: 'http://127.0.0.1:5000',
+      changeOrigin: true,
+      // pathRewrite: { '^/apiv2': '' }
+    },
+  },
 };
