@@ -100,7 +100,7 @@ class News extends Component {
   };
 
   formatTime = timestamp => {
-    const formatted = moment(timestamp).format('hh:mm');
+    const formatted = moment(timestamp * 1000).format('hh:mm');
     return formatted;
   };
 
