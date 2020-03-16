@@ -49,4 +49,5 @@ export default {
   'menu.editor.mind': '脑图编辑器',
   'menu.editor.koni': '拓扑编辑器',
   'menu.news': '新闻采集',
+  'menu.record': '观点记录',
 };

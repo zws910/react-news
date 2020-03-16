@@ -121,6 +121,12 @@ export default {
               component: './news',
             },
             {
+              name: 'record',
+              icon: 'folder',
+              path: '/record',
+              component: './record',
+            },
+            {
               component: './404',
             },
           ],
@@ -189,6 +195,10 @@ export default {
       target: 'http://127.0.0.1:5000',
       changeOrigin: true,
       // pathRewrite: { '^/apiv2': '' }
+    },
+    '/api/': {
+      target: 'http://127.0.0.1:5000',
+      changeOrigin: true,
     },
   },
 };

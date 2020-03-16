@@ -1,4 +1,3 @@
-import { PageHeaderWrapper } from '@ant-design/pro-layout';
 import React, { Component } from 'react';
 import { Spin, Row, Col, Card, Collapse, Checkbox, Divider, Tag } from 'antd';
 import { connect } from 'dva';
@@ -119,57 +118,55 @@ class News extends Component {
 
   render() {
     return (
-      <PageHeaderWrapper>
-        <Row>
-          {/* 新闻展示区域 */}
-          <Col span={20}>
-            <Spin spinning={this.props.loading.models.news} size="large">
-              <Card>
-                <ul className={styles.items}>
-                  {this.props.news.map(data => (
-                    <li className={styles.item} key={data.sid}>
-                      <div className={styles.inner}>
-                        <time className={styles.time}>{this.formatTime(data.ts_crawl)}</time>
-                        <header className={styles.title}>
-                          <a href={data.href} target="_blank" rel="noopener noreferrer">
-                            {data.title}
-                          </a>
-                        </header>
-                        <pre className={styles.summary}>{data.content}</pre>
+      <Row>
+        {/* 新闻展示区域 */}
+        <Col span={20}>
+          <Spin spinning={this.props.loading.models.news} size="large">
+            <Card>
+              <ul className={styles.items}>
+                {this.props.news.map(data => (
+                  <li className={styles.item} key={data.sid}>
+                    <div className={styles.inner}>
+                      <time className={styles.time}>{this.formatTime(data.ts_crawl)}</time>
+                      <header className={styles.title}>
+                        <a href={data.href} target="_blank" rel="noopener noreferrer">
+                          {data.title}
+                        </a>
+                      </header>
+                      <pre className={styles.summary}>{data.content}</pre>
 
-                        <Tag visible={data.source}>{this.formatSource(data.source)}</Tag>
-                        <i className={styles.dot} />
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </Card>
-            </Spin>
-          </Col>
-          {/* 右侧筛选 */}
-          <Col span={4}>
-            <Collapse bordered={false} style={customCollapseStyle} defaultActiveKey={['1']}>
-              <Panel header="筛选" style={customPanelStyle} key="1">
-                <div>
-                  <Checkbox
-                    indeterminate={this.state.indeterminate}
-                    onChange={this.onCheckAllChange}
-                    checked={this.state.checkAll}
-                  >
-                    全选
-                  </Checkbox>
-                  <Divider />
-                  <CheckboxGroup
-                    options={categories}
-                    value={this.state.checkedList}
-                    onChange={this.onChange}
-                  />
-                </div>
-              </Panel>
-            </Collapse>
-          </Col>
-        </Row>
-      </PageHeaderWrapper>
+                      <Tag visible={data.source}>{this.formatSource(data.source)}</Tag>
+                      <i className={styles.dot} />
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </Card>
+          </Spin>
+        </Col>
+        {/* 右侧筛选 */}
+        <Col span={4}>
+          <Collapse bordered={false} style={customCollapseStyle} defaultActiveKey={['1']}>
+            <Panel header="筛选" style={customPanelStyle} key="1">
+              <div>
+                <Checkbox
+                  indeterminate={this.state.indeterminate}
+                  onChange={this.onCheckAllChange}
+                  checked={this.state.checkAll}
+                >
+                  全选
+                </Checkbox>
+                <Divider />
+                <CheckboxGroup
+                  options={categories}
+                  value={this.state.checkedList}
+                  onChange={this.onChange}
+                />
+              </div>
+            </Panel>
+          </Collapse>
+        </Col>
+      </Row>
     );
   }
 }
